@@ -148,7 +148,7 @@ def cut(file_id, above_progress=0):
         transcript = transcript.decode('utf-8').replace("\n", " ").replace(' ', ' ')
         #print transcript.strip().lower()
         transcript = re.sub(u'[^а-яё ]', '', transcript.strip().lower()).strip()
-        print transcript
+        #print transcript
 
 
         if is_bad_subs(transcript):
