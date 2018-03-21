@@ -165,7 +165,7 @@ def cut(file_id, above_progress=0):
 
         if is_bad_piece(audio_piece_path, transcript):
             if os.path.exists(audio_piece_path):
-                os.remove(audio)
+                os.remove(audio_piece_path)
             return None
 
         #stats_good_piece_count += 1
