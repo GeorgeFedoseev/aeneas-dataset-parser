@@ -250,5 +250,6 @@ def create_dataset():
     vocabulary = open(export_vocabulary_txt_path, "w")   
     vocabulary.writelines([x[2]+"\n" for x in all_rows])
     vocabulary.close()
-
-create_dataset()
+    
+if __name__=="__main__":
+    create_dataset()
