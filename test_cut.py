@@ -174,6 +174,8 @@ def cut(file_id, above_progress=0):
 
         row = [audio_piece_path, str(file_size), transcript]
 
+        return row
+
     pool = ThreadPool(NUM_THREADS_PROCESSING)
     pieces_rows = pool.map(cutter_thread_method, enumerate(m))
 
