@@ -163,10 +163,10 @@ def cut(file_id, above_progress=0):
         if not os.path.exists(audio_piece_path):
             cut_audio_piece_to_wav(audio_path_wav, audio_piece_path, start, end)
 
-        if is_bad_piece(audio_piece_path, transcript):
-            if os.path.exists(audio_piece_path):
-                os.remove(audio_piece_path)
-            return None
+            if is_bad_piece(audio_piece_path, transcript):
+                if os.path.exists(audio_piece_path):
+                    os.remove(audio_piece_path)
+                return None
 
         #stats_good_piece_count += 1
 
@@ -178,7 +178,7 @@ def cut(file_id, above_progress=0):
     pieces_rows = pool.map(cutter_thread_method, enumerate(m))
 
     
-
+    pieces_rows = [x for x in pieces_rows if x != None]
 
     return pieces_rows
 
