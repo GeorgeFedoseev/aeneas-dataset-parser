@@ -19,6 +19,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 DATASET_NAME = 'echo-msk'
+NUM_THREADS_PROCESSING = 20
 
 curr_dir_path = os.path.dirname(os.path.realpath(__file__))
 dataset_folder_path = os.path.join(curr_dir_path, DATASET_NAME+"-dataset/")
@@ -171,7 +172,7 @@ def cut(file_id, above_progress=0):
 
         row = [audio_piece_path, str(file_size), transcript]
 
-    pool = ThreadPool(20)
+    pool = ThreadPool(NUM_THREADS_PROCESSING)
     pieces_rows = pool.map(cutter_thread_method, enumerate(m))
 
     
