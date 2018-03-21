@@ -1,0 +1,6 @@
+venv
+data
+*.lock
+*.csv
+export-sets
+*.pyc
